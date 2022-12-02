@@ -1,9 +1,8 @@
-package com.example.WetPlant.plants;
+package com.example.WetPlant.domain.plant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -13,17 +12,19 @@ import java.util.List;
 @RequestMapping("/plants")
 public class PlantController {
 
-    private final PlantRepository plantRepository;
+    private final PlantService plantService;
+
+    public PlantController(PlantService plantService) {
+        this.plantService = plantService;
+    }
 
     @Autowired
-    public PlantController(PlantRepository plantRepository) {
-        this.plantRepository = plantRepository;
-    }
+
 
     @CrossOrigin(origins = {})
     @GetMapping("")
     public ResponseEntity<List<Plant>> findAll() {
-        List<Plant> plants = plantRepository.findAll();
+        List<Plant> plants = plantService.findAll();
         return new ResponseEntity<>(plants, HttpStatus.OK);
     }
     @CrossOrigin(origins = {})
@@ -32,7 +33,7 @@ public class PlantController {
 
         plant.setDate(LocalDate.now());
 
-        return new ResponseEntity<>(plantRepository.save(plant), HttpStatus.CREATED);
+        return new ResponseEntity<>(plantService.save(plant), HttpStatus.CREATED);
     }
 
 

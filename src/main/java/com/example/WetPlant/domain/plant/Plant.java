@@ -1,27 +1,16 @@
-package com.example.WetPlant.plants;
+package com.example.WetPlant.domain.plant;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
+import com.example.WetPlant.core.generic.ExtendedEntity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.UUID;
+
 
 @Entity
 @Table(name = "plant")
-public class Plant  {
-
-    @Id
-    @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
-
-    @PrePersist
-    protected void onCreate() {
-        if (Objects.isNull(this.id)) {
-            this.id = UUID.randomUUID();
-        }
-    }
+public class Plant extends ExtendedEntity  {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
@@ -35,9 +24,7 @@ public class Plant  {
     @Column(name = "message", nullable = true)
     private String message;
 
-
-    public Plant(UUID id, LocalDate date, Boolean watered, Boolean fertilized, String message) {
-        this.id = id;
+    public Plant(LocalDate date, Boolean watered, Boolean fertilized, String message) {
         this.date = date;
         this.watered = watered;
         this.fertilized = fertilized;
@@ -45,14 +32,6 @@ public class Plant  {
     }
 
     public Plant() {
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public LocalDate getDate() {
