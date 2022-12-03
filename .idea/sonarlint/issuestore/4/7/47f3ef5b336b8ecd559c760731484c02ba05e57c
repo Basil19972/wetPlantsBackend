@@ -1,0 +1,24 @@
+
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¾•
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(œ±¿
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ŠĞÑıÿÿÿÿ
+e	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·³ƒZ
+e	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¥ìl
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨±ƒ—şÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾•
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ±¿
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ŠĞÑıÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äâ‘éıÿÿÿÿ
+k	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äâ‘éıÿÿÿÿ
+f	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕöŒÁ
+e	java:S117G"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À%
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( «ı”
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ûÎ³÷ÿÿÿÿÿ8î×œ¤Í0
+k
+java:S1858"O"contactField" is already a string, there's no need to call "toString()" on it.(·³ƒZ8ò×œ¤Í0
+I
+java:S1125O"'Remove the unnecessary boolean literal.(ğ½¢Šÿÿÿÿÿ8ÿ×œ¤Í0

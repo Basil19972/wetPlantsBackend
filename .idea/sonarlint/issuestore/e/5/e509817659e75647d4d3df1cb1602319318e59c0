@@ -1,0 +1,6 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İÑÍ
+_
+java:S1874"BRemove this use of "EnableGlobalMethodSecurity"; it is deprecated.(ö­ê×8¯½¤¤Í0
+[
+java:S1874/"9Remove this use of "authorizeRequests"; it is deprecated.(Ê•š¹şÿÿÿÿ8±½¤¤Í0
