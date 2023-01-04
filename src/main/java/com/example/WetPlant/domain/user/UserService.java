@@ -9,7 +9,7 @@ public interface UserService extends UserDetailsService, ExtendedService<User> {
 
     User getCurrentUser();
     User register(User user);
-    User lockUser(UUID id);
+
 
 
 

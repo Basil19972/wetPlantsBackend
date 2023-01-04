@@ -9,9 +9,8 @@ import java.util.UUID;
 
 public class UserDTO extends ExtendedDTO {
 
-    private String firstName;
+    private String username;
 
-    private String lastName;
 
     @Email
     private String email;
@@ -21,28 +20,18 @@ public class UserDTO extends ExtendedDTO {
     public UserDTO() {
     }
 
-    public UserDTO(UUID id, String firstName, String lastName, String email, Set<RoleDTO> roles) {
-        super(id);
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public UserDTO(String username, String email, Set<RoleDTO> roles) {
+        this.username = username;
         this.email = email;
         this.roles = roles;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

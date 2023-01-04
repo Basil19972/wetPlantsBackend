@@ -10,7 +10,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -36,23 +35,6 @@ public class UserController {
 
 
 
-    @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('USER_READ')")
-    public ResponseEntity<UserDTO> findById(@PathVariable UUID id) {
-        User user = userService.findById(id);
-        return new ResponseEntity<>(userMapper.toDTO(user), HttpStatus.OK);
-    }
-
-    @GetMapping({"", "/"})
-    @PreAuthorize("hasAuthority('USER_READ') && @userPermissionEvaluator.isUserAboveAge(authentication.principal.user,18)")
-    public @ResponseBody
-    ResponseEntity<List<UserDTO>> findAll() {
-        List<User> users = userService.findAll();
-        return new ResponseEntity<>(userMapper.toDTOs(users), HttpStatus.OK);
-    }
-
-
-
     @PostMapping("/register")
     public ResponseEntity<UserDTO> register(@Validated @RequestBody UserRegisterDTO userRegisterDTO) {
 
@@ -67,12 +49,7 @@ public class UserController {
         return new ResponseEntity<>(userMapper.toDTO(user), HttpStatus.OK);
     }
 
-    @PutMapping("/lockUser/{id}")
-    @PreAuthorize("hasAuthority('USER_MODIFY')")
-    public ResponseEntity<UserDTO> lockUser(@PathVariable UUID id) {
-        User user = userService.lockUser(id);
-        return new ResponseEntity<>(userMapper.toDTO(user), HttpStatus.OK);
-    }
+
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('USER_DELETE')")

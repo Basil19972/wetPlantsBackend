@@ -1,2 +1,6 @@
 
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ðã¬Û
+U
+java:S4684&"@Replace this persistent entity with a simple POJO or DTO object.(âô‘0
+d
+java:S1128"GRemove this unused import 'com.example.WetPlant.core.EmailServiceImpl'.(¦Œ«Ä8Ÿ¥í»Ñ0

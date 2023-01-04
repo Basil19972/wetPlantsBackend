@@ -1,6 +1,6 @@
 package com.example.WetPlant.domain.user;
 
-import com.example.WetPlant.core.exception.CantDeleteAdminException;
+import com.example.WetPlant.core.exception.EmailAlreadyExists;
 import com.example.WetPlant.core.generic.ExtendedRepository;
 import com.example.WetPlant.core.generic.ExtendedServiceImpl;
 import com.example.WetPlant.core.security.config.Roles;
@@ -37,9 +37,6 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
 
 
 
-
-
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return ((UserRepository) super.getRepository()).findByEmail(email).map(UserDetailsImpl::new).orElseThrow(() -> new UsernameNotFoundException(email));
@@ -49,34 +46,17 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
     @Override
     public User register(User user1) {
 
+        if(((UserRepository) super.getRepository()).findByEmail(user1.getEmail()).isPresent()) throw new EmailAlreadyExists("Email already exists");
 
         user1.setPassword(bCryptPasswordEncoder.encode(user1.getPassword()));
         user1.setNotLocked(true);
         user1.setRoles(new HashSet<Role>(Arrays.asList(roleService.GetDefaultRole())));
-
 
         return super.getRepository().save(user1);
 
 
     }
 
-    @Override
-    public User lockUser(UUID id) {
-
-        User user = ((UserRepository) super.getRepository()).findById(id).orElseThrow();
-
-        for (Role role : user.getRoles()) {
-
-            if (role.equals(roleService.findById(UUID.fromString(Roles.ADMIN.getUuid())))) {
-                throw new CantDeleteAdminException("You cant delete an other Admin");
-            }
-
-
-        }
-        findById(user.getId());
-        user.setNotLocked(false);
-        return updateById(user.getId(), user);
-    }
 
     public User getCurrentUser(){
         //Get User UUID

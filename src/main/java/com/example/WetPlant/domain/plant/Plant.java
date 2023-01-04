@@ -1,6 +1,7 @@
 package com.example.WetPlant.domain.plant;
 
 import com.example.WetPlant.core.generic.ExtendedEntity;
+import com.example.WetPlant.core.generic.ExtendedEntityAudit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "plant")
-public class Plant extends ExtendedEntity  {
+public class Plant extends ExtendedEntityAudit {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;

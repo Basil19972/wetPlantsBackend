@@ -1,2 +1,6 @@
 
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(®áŞğøÿÿÿÿ
+c
+java:S1612"AReplace this lambda with method reference 'FieldError::getField'.(ÏªÒ¦şÿÿÿÿ8ÕşïÄÕ0
+€
+java:S1612"^Replace this lambda with method reference 'DefaultMessageSourceResolvable::getDefaultMessage'.(ÏªÒ¦şÿÿÿÿ8ÖşïÄÕ0

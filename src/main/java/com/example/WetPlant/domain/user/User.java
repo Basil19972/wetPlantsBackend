@@ -7,25 +7,13 @@ import com.example.WetPlant.domain.role.Role;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class User extends ExtendedEntityAudit {
 
-//HELLO
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-
-    @Column(name = "age", nullable = false)
-    private int age;
-
-    @Column(name = "height", nullable = false)
-    private Double height;
+    @Column(name = "user_name")
+    private String username;
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;
@@ -37,7 +25,6 @@ public class User extends ExtendedEntityAudit {
     private boolean notLocked;
 
 
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "users_role",
@@ -47,51 +34,23 @@ public class User extends ExtendedEntityAudit {
     private Set<Role> roles = new HashSet<>();
 
 
-
-    public User(UUID uuid, String firstName, String lastName, int age, Double height, String email, String password, boolean notLocked, Set<Role> roles) {
-
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.height = height;
+    public User(String username, String email, String password, boolean notLocked, Set<Role> roles) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.notLocked = notLocked;
-
         this.roles = roles;
-        super.setId(uuid);
-    }
-    public User( String firstName, String lastName, int age,Double height, String email, String password, boolean notLocked, Set<Role> roles) {
-
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.height = height;
-        this.email = email;
-        this.password = password;
-        this.notLocked = notLocked;
-
-        this.roles = roles;
-
     }
 
     public User() {
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -110,12 +69,12 @@ public class User extends ExtendedEntityAudit {
         this.password = password;
     }
 
-    public Double getHeight() {
-        return height;
+    public boolean isNotLocked() {
+        return notLocked;
     }
 
-    public void setHeight(Double height) {
-        this.height = height;
+    public void setNotLocked(boolean notLocked) {
+        this.notLocked = notLocked;
     }
 
     public Set<Role> getRoles() {
@@ -124,23 +83,5 @@ public class User extends ExtendedEntityAudit {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
-
-
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public boolean isNotLocked() {
-        return notLocked;
-    }
-
-    public void setNotLocked(boolean locked) {
-        this.notLocked = locked;
     }
 }

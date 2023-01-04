@@ -1,4 +1,10 @@
 
+t
+java:S22935"YReplace the type specification in this constructor call with the diamond operator ("<>").(¢Ûçùÿÿÿÿ
 r
-java:S1488U"\Immediately return this expression instead of assigning it to the temporary variable "user".(˜°‚ş
+java:S1488A"\Immediately return this expression instead of assigning it to the temporary variable "user".(˜°‚ş
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(èõ÷ûÿÿÿÿ
+b
+java:S1128"LRemove this unused import 'com.example.WetPlant.core.security.config.Roles'.(§İˆ³
+F
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ
